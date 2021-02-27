@@ -1,0 +1,34 @@
+{
+  "name": "cdk_infra",
+  "version": "0.1.0",
+  "bin": {
+    "cdk_infra": "bin/cdk_infra.js"
+  },
+  "scripts": {
+    "lint": "eslint '*/**/*.{js,ts}' --quiet --fix",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.86.0",
+    "@types/jest": "^26.0.10",
+    "@types/node": "10.17.27",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "aws-cdk": "1.86.0",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.4.2",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-amplify": "^1.86.0",
+    "@aws-cdk/core": "1.86.0",
+    "source-map-support": "^0.5.16"
+  }
+}
