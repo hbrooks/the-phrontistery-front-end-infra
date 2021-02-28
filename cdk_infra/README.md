@@ -3,8 +3,8 @@ From: https://aws.amazon.com/blogs/mobile/deploying-a-static-website-with-aws-am
 
 
 ### To Set Up:
-1. `rm -rf node_modules/`
-1. `npm install`
-2. Create GitHub PAT. Add name to `cdk_infra-stack.ts`
-2. `npm run cdk synth`
-2. `npm run cdk deploy`
+3. `rm -rf node_modules/`
+4. `npm install`
+5. Create GitHub PAT. Add name to `cdk_infra-stack.ts`
+6. `npm run cdk synth`
+7. `npm run cdk deploy`

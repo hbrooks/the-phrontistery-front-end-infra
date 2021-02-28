@@ -1,0 +1,10 @@
+{
+  "hosted-zone:account=254211059804:domainName=the-phrontistery.com:region=us-east-1": {
+    "Id": "/hostedzone/Z0039293378DUADO573LP",
+    "Name": "the-phrontistery.com."
+  },
+  "hosted-zone:account=254211059804:domainName=the-phrontistery.com:privateZone=false:region=us-east-1": {
+    "Id": "/hostedzone/Z0039293378DUADO573LP",
+    "Name": "the-phrontistery.com."
+  }
+}
