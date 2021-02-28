@@ -1,7 +1,5 @@
 import * as cdk from '@aws-cdk/core';
 import * as s3 from '@aws-cdk/aws-s3';
-import * as iam from '@aws-cdk/aws-iam';
-
 import * as cloudfront from '@aws-cdk/aws-cloudfront';
 import * as route53 from '@aws-cdk/aws-route53';
 import * as certificateManager from '@aws-cdk/aws-certificatemanager';
@@ -49,11 +47,11 @@ export class AmplifyInfraStack extends cdk.Stack {
           },
         ],
         viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(
-          certificate, // 1
+          certificate,
           {
             aliases: [URL],
-            securityPolicy: cloudfront.SecurityPolicyProtocol.TLS_V1, // 2
-            sslMethod: cloudfront.SSLMethod.SNI, // 3
+            securityPolicy: cloudfront.SecurityPolicyProtocol.TLS_V1,
+            sslMethod: cloudfront.SSLMethod.SNI,
           },
         ),
       }
@@ -61,28 +59,12 @@ export class AmplifyInfraStack extends cdk.Stack {
 
     bucket.grantRead(cloudFrontOAI.grantPrincipal);
 
-    // const cloudfrontS3Access = new iam.PolicyStatement();
-    // cloudfrontS3Access.addActions('s3:GetBucket*');
-    // cloudfrontS3Access.addActions('s3:GetObject*');
-    // cloudfrontS3Access.addActions('s3:List*');
-    // cloudfrontS3Access.addResources(bucket.bucketArn);
-    // cloudfrontS3Access.addResources(`${bucket.bucketArn}/*`);
-    // cloudfrontS3Access.addCanonicalUserPrincipal(
-    //   cloudFrontOAI.cloudFrontOriginAccessIdentityS3CanonicalUserId
-    // );
-    // bucket.addToResourcePolicy(cloudfrontS3Access);
-
     const cloudfrontTarget = new targets.CloudFrontTarget(cloudfrontDist);
 
     new route53.ARecord(this, 'Alias', {
       zone: hostedZone,
       target: route53.RecordTarget.fromAlias(cloudfrontTarget)
     });
-
-    // const cName = new route53.CnameRecord(this, 'test.baseZone', {
-    //     zone: hostedZone,
-    //     domainName: bucket.bucketWebsiteDomainName
-    // });
 
   }
 }
